@@ -4,7 +4,7 @@
 if [ -f ~./ai-core.sh ]; then
   source ./ai-core.sh
 else
-  source ~/bin/ai-core.sh
+  source ~/bin/ai-core
 fi
 
 fetch_defaults() {
