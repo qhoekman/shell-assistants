@@ -1,0 +1,64 @@
+targetBranch: main
+ticket:
+  id: 123
+  title: |
+    Insert title
+  description: |
+    Insert description
+models:
+  commit: llama3
+  staged: llama3
+  code: deepseek-coder:6.7b-instruct
+ignorePatterns:
+  - .mdx
+  - .md
+prompts:
+  project: ""
+  codeStandards: |
+    Validate the code against the following coding standards:
+    - Write comments above if-statements and loops to explain the logic. Explain the why, not the what.
+    - Single responsibility principle - Each function should do one thing and do it well. Do not add boolean arguments to functions. Instead, create separate functions.
+  namingConventions: |
+    For git we use the `git-flow` branching model. We have the following branches:
+
+    - `main`
+    - `develop`
+    - `feature/*`
+    - `bugfix/*`
+    - `hotfix/*`
+
+    The feature branches need to include the ticket number and a short description of the feature. For example, `feature/1234-add-new-component`.
+
+    For files and directories, we use the following naming conventions:
+
+    - All files should be named in lowercase and use hyphens to separate words. For example, `my-file-name.md`.
+    - All directories should be named in lowercase and use hyphens to separate words. For example, `my-directory-name`.
+  commitMessage: |
+    Suggest a git commit message for the diff provided above. Only output the commit message and skip the explaination. The commit message should follow standards such as:
+
+    - The commit message should be written in active voice.
+    - The commit message should follow the conventional commit format. The commit message should be in the following format For example, `feat(button): add new button component #ticketnumber`.
+    - The commit message should have a ticket at the end.
+  staged: |
+    Review the diff of the staged files. Make sure that the changes are correct and follow the standards. If the file does not have any code or does not need any changes, say 'No changes needed'
+  review: |
+    Review this code, provide suggestions for improvement, coding best
+    practices, improve readability, and maintainability. Remove any code smells
+    and anti-patterns. Provide code examples for your suggestion. Respond in
+    markdown format. If the file does not have any code or does not need any
+    changes, say 'No changes needed'.
+  bestPractices:
+    ".mdx": |
+      - Valid markdown
+    ".stories.tsx": |
+      - The story follows the CSF3 format.
+    ".tsx": |
+      - The testids need to be complaint to the BEM naming convention. For example, `my-component-name__my-element-name`.
+      - The component should have a `data-testid` attribute.
+      - The component has a type definition for the props
+      - The component is always defined as `const MyComponent: React.FC<MyComponentProps> = ({}) => {}`
+output:
+  staged: .ai/staged.md
+  commit: .ai/commit.md
+  prompt: .ai/prompt.md
+  review: .ai/review.md

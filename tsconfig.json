@@ -1,0 +1,30 @@
+{
+  "compilerOptions": {
+    "target": "ES2022",
+    "module": "CommonJS",
+    "moduleResolution": "Node",
+    "esModuleInterop": true,
+    "isolatedModules": false,
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "declaration": true,
+    "noImplicitAny": true,
+    "noImplicitThis": true,
+    "noImplicitReturns": true,
+    "suppressExcessPropertyErrors": false,
+    "suppressImplicitAnyIndexErrors": false,
+    "strictNullChecks": true,
+    "preserveConstEnums": true,
+    "removeComments": true,
+    "resolveJsonModule": true,
+    "noLib": false,
+    "sourceMap": true,
+    "pretty": true,
+    "typeRoots": ["node_modules/@types"],
+    "outDir": "dist",
+    "incremental": true,
+    "importHelpers": true
+  },
+  "include": ["src/**/*.ts"],
+  "exclude": ["node_modules", "dist", "cjs"]
+}

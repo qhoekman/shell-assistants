@@ -1,0 +1,15 @@
+{
+  "name": "shell-assistants",
+  "version": "1.0.0",
+  "description": "",
+  "private": true,
+  "scripts": {
+    "build": "npx ts-json-schema-generator --path src/schema.ts --type 'Root' --additional-properties -o .ai.schema.json"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "ts-json-schema-generator": "^2.2.0"
+  }
+}
