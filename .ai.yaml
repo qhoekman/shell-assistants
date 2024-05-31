@@ -1,3 +1,4 @@
+$schema: https://quido.online/ai.schema.json
 targetBranch: main
 ticket:
   id: 123
