@@ -2,7 +2,11 @@
 # This script reviews the staged files in the current branch.
 # It uses `ollama` to review the files.
 
-source ./ai-core.sh
+if [ -f ~./ai-core.sh ]; then
+  source ./ai-core.sh
+else
+  source ~/bin/ai-core.sh
+fi
 
 review_staged() {
   local stagedFiles=$(git diff --name-status --cached)

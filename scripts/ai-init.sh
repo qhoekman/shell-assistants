@@ -1,7 +1,11 @@
 #!/bin/bash
 # This script initializes the AI tool.
 
-source ./ai-core.sh
+if [ -f ~./ai-core.sh ]; then
+  source ./ai-core.sh
+else
+  source ~/bin/ai-core.sh
+fi
 
 fetch_defaults() {
   log "Fetching default values..."

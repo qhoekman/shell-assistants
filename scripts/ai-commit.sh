@@ -1,7 +1,11 @@
 #!/bin/bash
 # This script prepares a commit message.
 
-source ./ai-core.sh
+if [ -f ~./ai-core.sh ]; then
+  source ./ai-core.sh
+else
+  source ~/bin/ai-core.sh
+fi
 
 prepare_commit_message() {
   local outputCommit=$(read_config "output.commit")

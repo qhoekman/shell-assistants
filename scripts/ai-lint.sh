@@ -2,7 +2,11 @@
 # This script links the staged files in the current branch.
 # It uses `ollama` to lint the files.
 
-source ./ai-core.sh
+if [ -f ~./ai-core.sh ]; then
+  source ./ai-core.sh
+else
+  source ~/bin/ai-core.sh
+fi
 
 lint_files() {
   local promptCodeStandards=$(read_config "prompts.codeStandards")
